@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <div>
+            <p class="eyebrow">STUDENT PORTAL</p>
+            <h1>Student Management</h1>
+            <p class="subheading">Manage your student records in one place.</p>
+        </div>
+        <button class="primary" id="addNewBtn">+ Add Student</button>
+    </header>
+
+    <section class="stats">
+        <div class="stat-card">
+            <span>Total Students</span>
+            <strong id="totalStudents">0</strong>
+        </div>
+        <div class="stat-card">
+            <span>Recently Added</span>
+            <strong id="latestStudent">—</strong>
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="panel-heading">
+            <div>
+                <h2>Students</h2>
+                <p class="muted">View, search, edit or remove records.</p>
+            </div>
+            <input type="search" id="searchInput" placeholder="Search name or email...">
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                <tr><th>ID</th><th>Name</th><th>Email</th><th>Age</th><th>Actions</th></tr>
+                </thead>
+                <tbody id="studentTable">
+                <tr><td colspan="5" class="empty">Loading students...</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p id="statusMessage" class="status" role="status"></p>
+    </section>
+</div>
+
+<div class="modal hidden" id="studentModal">
+    <div class="modal-card">
+        <div class="modal-heading">
+            <div><p class="eyebrow">STUDENT DETAILS</p><h2 id="formTitle">Add Student</h2></div>
+            <button class="close-btn" id="closeModal" aria-label="Close">×</button>
+        </div>
+        <form id="studentForm">
+            <input type="hidden" id="studentId">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" maxlength="100" placeholder="Enter student name" required>
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" maxlength="150" placeholder="Enter email address" required>
+            <label for="age">Age</label>
+            <input id="age" name="age" type="number" min="1" max="120" placeholder="Enter age" required>
+            <div class="form-actions">
+                <button type="button" class="secondary" id="cancelBtn">Cancel</button>
+                <button type="submit" class="primary" id="saveBtn">Save Student</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
